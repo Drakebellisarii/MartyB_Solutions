@@ -7,12 +7,6 @@ const Process = () => {
 
   return (
     <section id="process" className="py-24 bg-gradient-to-br from-navy-800 via-navy-900 to-navy-800 text-white relative overflow-hidden">
-      {/* Enhanced background accents */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-navy-500 rounded-full opacity-5"></div>
-        <div className="absolute bottom-20 right-20 w-48 h-48 bg-navy-500 rounded-full opacity-5"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-navy-600 to-transparent opacity-10"></div>
-      </div>
       
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Enhanced header */}
