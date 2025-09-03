@@ -3,6 +3,19 @@ export const clients = [
     'Michael Bloomberg', 
     'Herbie Hancock',
     'Harry Belafonte',
-    'Fortune 500 Executives',
-    'Global Brands'
+    'Stevie Wonder',
+    'Scott Stringer',
+    'Neil Young',
+    'Katie Couric',
+    'Julie Banderas',
+    'B.B. King',
+    'Terry Ludgren',
+    'Regis Philbin',
+    'Mike Woods',
+    'Cousin Brucie',
+    'Joan Hamburg',
+    'Marvin Scott',
+    'Joe Perry',
+    'Brad Whitford',
+
   ];

@@ -5,6 +5,7 @@ import About from './components/sections/About';
 import Network from './components/sections/Network';
 import Process from './components/sections/Process';
 import ClientShowcase from './components/sections/ClientShowcase';
+import Services from './components/sections/Services';
 import Contact from './components/sections/Contact';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <About />
       <Network />
       <Process />
+      <Services />
       <ClientShowcase />
       <Contact />
     </Layout>

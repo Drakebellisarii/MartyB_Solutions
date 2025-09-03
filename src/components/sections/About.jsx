@@ -5,17 +5,18 @@ const About = () => {
   const isVisible = useIntersectionObserver();
 
   const stats = [
-    { number: '40+', label: 'Years Experience', color: 'accent-blue' },
-    { number: '500+', label: 'Fortune Companies', color: 'accent-blue' },
-    { number: '∞', label: 'Doors Opened', color: 'accent-blue' }
+    { number: '40+', label: 'Years Experience', gradient: 'from-navy-500 to-navy-600' },
+    { number: '500+', label: 'Fortune Companies', gradient: 'from-navy-500 to-navy-600' },
+    { number: '∞', label: 'Doors Opened', gradient: 'from-navy-500 to-navy-600' }
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-white to-accent-blue-50 relative overflow-hidden">
-      {/* Subtle background accent */}
+    <section id="about" className="py-24 bg-gradient-to-br from-gray-50 via-white to-navy-50 relative overflow-hidden">
+      {/* Enhanced background accents */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-10 right-10 w-32 h-32 bg-accent-blue-100 rounded-full opacity-10"></div>
-        <div className="absolute bottom-10 left-10 w-24 h-24 bg-accent-blue-100 rounded-full opacity-10"></div>
+        <div className="absolute top-20 right-20 w-64 h-64 bg-navy-100 rounded-full opacity-10"></div>
+        <div className="absolute bottom-20 left-20 w-48 h-48 bg-navy-100 rounded-full opacity-10"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-gray-200 to-transparent opacity-5"></div>
       </div>
       
       <div className="max-w-6xl mx-auto px-6 relative z-10">
@@ -25,21 +26,28 @@ const About = () => {
               isVisible.about ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}
           >
-            <img 
-              src="/Marty.png" 
-              alt="Marty Singer - Professional Headshot" 
-              className="w-full max-w-md h-auto object-contain rounded-xl shadow-xl border-4 border-accent-blue-200 bg-gradient-to-br from-accent-blue-50 to-white p-4"
-            />
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-navy-200 via-gray-200 to-navy-200 rounded-2xl transform rotate-3 scale-105 opacity-20"></div>
+              <img 
+                src="/Marty.png" 
+                alt="Marty Singer - Professional Headshot" 
+                className="relative w-full max-w-md h-auto object-contain rounded-2xl shadow-2xl border-4 border-white bg-gradient-to-br from-gray-50 to-white p-6"
+              />
+            </div>
           </div>
           <div 
             className={`transition-all duration-1000 ${
               isVisible.about ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
             }`}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8">
-            Classic Vibes, Connected Lives
+            <div className="inline-flex items-center space-x-3 mb-6">
+              <div className="w-8 h-1 bg-gradient-to-r from-navy-400 to-navy-600 rounded-full"></div>
+              <span className="text-gray-600 font-medium">About Marty</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-8 font-playfair">
+              Classic Vibes, Connected Lives
             </h2>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
               I'm Marty Singer, and I've spent four decades mastering the art of opening doors. 
               From my legendary days at J&R Music & Computer World to building bridges across 
               Fortune 500 boardrooms, I'm the connector who makes impossible introductions possible.
@@ -49,18 +57,20 @@ const About = () => {
               {stats.map((stat, index) => (
                 <div 
                   key={stat.label}
-                  className={`text-center p-6 bg-white border-2 border-${stat.color}-200 rounded-lg shadow-md hover:shadow-lg transition-all duration-700 hover:-translate-y-1 ${
+                  className={`text-center p-6 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 ${
                     isVisible.about ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                   }`}
                   style={{ transitionDelay: `${(index + 1) * 200}ms` }}
                 >
-                  <div className={`text-2xl md:text-3xl font-bold text-${stat.color}-600 mb-2`}>{stat.number}</div>
-                  <div className="text-gray-600 text-sm md:text-base">{stat.label}</div>
+                  <div className={`w-12 h-12 bg-gradient-to-br ${stat.gradient} text-white flex items-center justify-center rounded-lg mx-auto mb-3 text-xl font-bold`}>
+                    {stat.number}
+                  </div>
+                  <div className="text-gray-700 text-sm md:text-base font-medium">{stat.label}</div>
                 </div>
               ))}
             </div>
             
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-lg text-gray-700 leading-relaxed">
               Whether you need access to retail buyers, C-suite executives, or global markets, 
               I'm your direct line to decision-makers who can say "yes" to your vision.
             </p>

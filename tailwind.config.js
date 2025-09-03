@@ -6,8 +6,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'playfair': ['Playfair Display', 'serif'],
+      },
       colors: {
-        'accent-blue': {
+        'navy': {
           50: '#f0f4f8',
           100: '#d9e2ec',
           200: '#bcccdc',
@@ -23,6 +26,9 @@ module.exports = {
       animation: {
         'fade-in': 'fadeIn 0.8s ease-in-out',
         'slide-up': 'slideUp 0.6s ease-out',
+        'slide-down': 'slideDown 0.6s ease-out',
+        'slide-left': 'slideLeft 0.6s ease-out',
+        'slide-right': 'slideRight 0.6s ease-out',
         'float': 'float 3s ease-in-out infinite',
         'glow': 'glow 2s ease-in-out infinite alternate',
       },
@@ -35,6 +41,18 @@ module.exports = {
           '0%': { opacity: '0', transform: 'translateY(30px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' }
         },
+        slideDown: {
+          '0%': { opacity: '0', transform: 'translateY(-30px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' }
+        },
+        slideLeft: {
+          '0%': { opacity: '0', transform: 'translateX(30px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' }
+        },
+        slideRight: {
+          '0%': { opacity: '0', transform: 'translateX(-30px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' }
+        },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-10px)' }
@@ -43,6 +61,10 @@ module.exports = {
           '0%': { boxShadow: '0 0 5px rgba(98, 125, 152, 0.3)' },
           '100%': { boxShadow: '0 0 20px rgba(98, 125, 152, 0.6)' }
         }
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       }
     },
   },
