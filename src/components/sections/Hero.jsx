@@ -61,15 +61,6 @@ const Hero = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 flex items-center justify-center min-h-screen">
         <div className="text-center space-y-12 w-full">
 
-          {/* Badge */}
-          <div className="animate-fade-in-down">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 border border-primary-500/30 rounded-full text-primary-300 text-sm font-medium backdrop-blur-sm">
-              <Sparkles className="w-4 h-4" />
-              Elite Business Connector
-              <Sparkles className="w-4 h-4" />
-            </span>
-          </div>
-
           {/* Main heading */}
           <div className="space-y-6 animate-fade-in-up">
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight font-playfair">
@@ -157,13 +148,7 @@ const Hero = () => {
               <div className="text-sm text-gray-400">Client Satisfaction</div>
             </div>
           </div>
-
-          {/* Scroll indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
-            <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
-              <div className="w-1 h-3 bg-primary-400 rounded-full animate-pulse"></div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
