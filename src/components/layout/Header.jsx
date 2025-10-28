@@ -1,17 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import useScrollPosition from '../../hooks/useScrollPosition';
+import { Sparkles } from 'lucide-react';
 
 const Header = () => {
   const scrollY = useScrollPosition();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   const navItems = [
     { name: 'About', href: 'about' },
     { name: 'Network', href: 'network' },
     { name: 'Process', href: 'process' },
-    { name: 'Testimonials', href: 'success-stories' },
+    { name: 'Services', href: 'services' },
+    { name: 'Clients', href: 'success-stories' },
     { name: 'Contact', href: 'contact' }
   ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    document.querySelectorAll('section[id]').forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const socialLinks = [
     { 
@@ -57,84 +79,95 @@ const Header = () => {
   };
 
   return (
-    <header 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrollY > 50 
-          ? 'bg-white/95 backdrop-blur-md shadow-xl border-gray-200' 
-          : 'bg-white/90 backdrop-blur-sm'
-      } border-b border-gray-200`}
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        scrollY > 50
+          ? 'bg-dark-900/95 backdrop-blur-xl shadow-2xl border-white/10'
+          : 'bg-dark-900/80 backdrop-blur-md'
+      } border-b border-white/5`}
     >
-      <nav className="max-w-6xl mx-auto px-6 py-4">
+      <nav className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Spacer for left side */}
-          <div className="hidden md:block w-1/3"></div>
-          
+          {/* Logo/Brand */}
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center gap-2 group"
+          >
+            <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <Sparkles className="w-5 h-5 text-white" />
+            </div>
+            <div className="hidden sm:block">
+              <div className="text-white font-bold text-lg font-playfair">Marty B</div>
+              <div className="text-primary-300 text-xs font-medium">Elite Connections</div>
+            </div>
+          </button>
+
           {/* Desktop Navigation - Centered */}
-          <ul className="hidden md:flex space-x-12 justify-center">
-            {navItems.map((item, index) => (
+          <ul className="hidden lg:flex items-center gap-8">
+            {navItems.map((item) => (
               <li key={item.name} className="relative group">
                 <button
                   onClick={() => scrollToSection(item.href)}
-                  className="text-gray-700 hover:text-navy-600 transition-all duration-300 font-medium"
+                  className={`text-sm font-medium transition-all duration-300 ${
+                    activeSection === item.href
+                      ? 'text-primary-400'
+                      : 'text-gray-300 hover:text-white'
+                  }`}
                 >
                   {item.name}
-                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-navy-500 to-navy-600 transition-all duration-300 group-hover:w-full`}></span>
+                  <span
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary-500 to-secondary-500 transition-all duration-300 ${
+                      activeSection === item.href ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
+                  ></span>
                 </button>
               </li>
             ))}
           </ul>
 
-          {/* Social Media Icons - Desktop */}
-          <div className="hidden md:flex items-center space-x-4 justify-end w-1/3">
+          {/* CTA & Social - Desktop */}
+          <div className="hidden lg:flex items-center gap-4">
             {socialLinks.map((social) => (
               <a
                 key={social.name}
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-navy-600 transition-colors duration-300 p-2 rounded-full hover:bg-navy-50"
+                className="text-gray-400 hover:text-primary-400 transition-colors duration-300 p-2 rounded-lg hover:bg-white/5"
                 aria-label={social.name}
               >
                 {social.icon}
               </a>
             ))}
-          </div>
-
-          {/* Mobile Navigation */}
-          <div className="md:hidden flex items-center space-x-4">
-            {/* Social Media Icons - Mobile */}
-            <div className="flex items-center space-x-2">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-navy-600 transition-colors duration-300 p-1"
-                  aria-label={social.name}
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
-            
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-navy-600 transition-colors duration-300"
+              onClick={() => scrollToSection('contact')}
+              className="ml-4 px-6 py-2.5 bg-gradient-to-r from-primary-600 to-secondary-600 text-white text-sm font-semibold rounded-full hover:shadow-glow-md transition-all duration-300 hover:scale-105"
             >
-              <span className="sr-only">Open menu</span>
-              <div className="w-6 h-6 flex flex-col justify-center">
-                <span className={`block h-0.5 w-6 bg-current transition-transform duration-300 ${isMenuOpen ? 'rotate-45 translate-y-0.5' : ''}`}></span>
-                <span className={`block h-0.5 w-6 bg-current mt-1 transition-opacity duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-                <span className={`block h-0.5 w-6 bg-current mt-1 transition-transform duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
-              </div>
+              Get Connected
             </button>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden text-gray-300 hover:text-white transition-colors duration-300 p-2"
+          >
+            <span className="sr-only">Toggle menu</span>
+            <div className="w-6 h-6 flex flex-col justify-center gap-1.5">
+              <span className={`block h-0.5 w-full bg-current transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+              <span className={`block h-0.5 w-full bg-current transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+              <span className={`block h-0.5 w-full bg-current transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+            </div>
+          </button>
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-gray-200 bg-white/95 backdrop-blur-md rounded-xl shadow-xl">
+        <div
+          className={`lg:hidden overflow-hidden transition-all duration-300 ${
+            isMenuOpen ? 'max-h-96 mt-4' : 'max-h-0'
+          }`}
+        >
+          <div className="py-4 space-y-2 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10">
             {navItems.map((item) => (
               <button
                 key={item.name}
@@ -142,13 +175,28 @@ const Header = () => {
                   scrollToSection(item.href);
                   setIsMenuOpen(false);
                 }}
-                className="block w-full text-center py-2 text-gray-700 hover:text-navy-600 hover:bg-navy-50 transition-all duration-300 rounded-lg"
+                className={`block w-full text-center py-3 text-sm font-medium transition-all duration-300 rounded-lg ${
+                  activeSection === item.href
+                    ? 'text-primary-400 bg-white/10'
+                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                }`}
               >
                 {item.name}
               </button>
             ))}
+            <div className="px-4 pt-4 border-t border-white/10">
+              <button
+                onClick={() => {
+                  scrollToSection('contact');
+                  setIsMenuOpen(false);
+                }}
+                className="w-full px-6 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white text-sm font-semibold rounded-full hover:shadow-glow-md transition-all duration-300"
+              >
+                Get Connected
+              </button>
+            </div>
           </div>
-        )}
+        </div>
       </nav>
     </header>
   );
