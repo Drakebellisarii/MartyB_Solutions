@@ -215,11 +215,11 @@ const ScrollExpandMedia = ({
                   <p
                     className="font-inter font-semibold uppercase transition-none"
                     style={{
-                      fontSize: `${1.1 + scrollProgress * 1.6}rem`,
+                      fontSize: `${1.5 + scrollProgress * 1.6}rem`,
                       letterSpacing: `${0.2 + scrollProgress * 0.05}em`,
-                      color: `rgba(79,140,255,${0.8 + scrollProgress * 0.2})`,
+                      color: `rgba(255,255,255,${0.9 + scrollProgress * 0.1})`,
                       marginBottom: `${0.4 + scrollProgress * 0.6}rem`,
-                      textShadow: `0 0 ${20 + scrollProgress * 40}px rgba(30,110,245,${0.3 + scrollProgress * 0.4})`,
+                      textShadow: `0 0 ${20 + scrollProgress * 40}px rgba(0,0,0,${0.5 + scrollProgress * 0.3})`,
                     }}
                   >
                     {name}

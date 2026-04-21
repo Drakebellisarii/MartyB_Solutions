@@ -162,7 +162,7 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-white/8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/30 text-xs font-inter">
-            © 2025 Marty B Solutions. All rights reserved. · New York City
+            © 2026 Marty B Solutions. All rights reserved. · New York City
           </p>
           <p className="text-white/20 text-xs font-inter italic">
             "Your next big opportunity is in my network."
