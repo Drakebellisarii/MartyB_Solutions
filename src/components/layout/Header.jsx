@@ -111,7 +111,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Nav — centered */}
-          <ul className="hidden lg:flex items-center gap-1" role="list">
+          <ul className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
               <li key={item.name}>
                 <button
