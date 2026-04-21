@@ -1,24 +1,39 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
+import Services from './components/sections/Services';
 import Network from './components/sections/Network';
 import Process from './components/sections/Process';
 import ClientShowcase from './components/sections/ClientShowcase';
-import Services from './components/sections/Services';
-import Contact from './components/sections/Contact';
+import Testimonials from './components/sections/Testimonials';
+import CTAStrip from './components/sections/CTAStrip';
+import ContactPage from './pages/ContactPage';
 
-function App() {
+function HomePage() {
   return (
     <Layout>
       <Hero />
       <About />
+      <Services />
       <Network />
       <Process />
-      <Services />
       <ClientShowcase />
-      <Contact />
+      <Testimonials />
+      <CTAStrip />
     </Layout>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+    </Router>
   );
 }
 

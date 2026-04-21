@@ -12,52 +12,32 @@ module.exports = {
       },
       colors: {
         'primary': {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#b9e1fe',
-          300: '#7cc8fd',
-          400: '#36affa',
-          500: '#0c93eb',
-          600: '#0075c9',
-          700: '#015da3',
-          800: '#064f86',
-          900: '#0b426f',
+          50: '#EEF4FF',
+          100: '#E0EAFF',
+          200: '#C7D9FF',
+          300: '#9AB5FF',
+          400: '#6B90FF',
+          500: '#1E6EF5',
+          600: '#1055CC',
+          700: '#0A47BC',
+          800: '#0E1E35',
+          900: '#0A1628',
+          950: '#050D1A',
         },
-        'secondary': {
-          50: '#fdf4ff',
-          100: '#fae8ff',
-          200: '#f5d0fe',
-          300: '#f0abfc',
-          400: '#e879f9',
-          500: '#d946ef',
-          600: '#c026d3',
-          700: '#a21caf',
-          800: '#86198f',
-          900: '#701a75',
-        },
-        'accent': {
-          50: '#fef3c7',
-          100: '#fde68a',
-          200: '#fcd34d',
-          300: '#fbbf24',
-          400: '#f59e0b',
-          500: '#f97316',
-          600: '#ea580c',
-          700: '#c2410c',
-          800: '#9a3412',
-          900: '#7c2d12',
+        'gold': {
+          300: '#E8C97D',
+          400: '#D4B96B',
+          500: '#C9A84C',
+          600: '#A07C28',
+          700: '#7A5E1A',
         },
         'navy': {
-          50: '#f0f4f8',
-          100: '#d9e2ec',
-          200: '#bcccdc',
-          300: '#9fb3c8',
-          400: '#829ab1',
-          500: '#627d98',
-          600: '#486581',
-          700: '#334e68',
-          800: '#243b53',
-          900: '#102a43',
+          400: '#254B85',
+          500: '#1A3460',
+          600: '#112347',
+          700: '#0A1628',
+          800: '#070D1A',
+          900: '#050D1A',
         },
         'dark': {
           50: '#f8fafc',
@@ -70,25 +50,21 @@ module.exports = {
           700: '#334155',
           800: '#1e293b',
           900: '#0f172a',
-        }
+        },
+        'cream': '#F7F9FC',
       },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-in-out',
         'fade-in-up': 'fadeInUp 0.8s ease-out',
         'fade-in-down': 'fadeInDown 0.8s ease-out',
         'slide-up': 'slideUp 0.6s ease-out',
-        'slide-down': 'slideDown 0.6s ease-out',
-        'slide-left': 'slideLeft 0.6s ease-out',
-        'slide-right': 'slideRight 0.6s ease-out',
-        'float': 'float 3s ease-in-out infinite',
-        'float-slow': 'float 6s ease-in-out infinite',
-        'glow': 'glow 2s ease-in-out infinite alternate',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'shimmer': 'shimmer 2s linear infinite',
-        'gradient': 'gradient 8s linear infinite',
-        'spin-slow': 'spin 8s linear infinite',
-        'bounce-slow': 'bounce 3s infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'float-slow': 'float 9s ease-in-out infinite',
+        'glow': 'glow 3s ease-in-out infinite alternate',
+        'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'shimmer': 'shimmer 2.5s linear infinite',
         'scale-in': 'scaleIn 0.5s ease-out',
+        'marquee': 'marquee 30s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -107,53 +83,40 @@ module.exports = {
           '0%': { opacity: '0', transform: 'translateY(30px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' }
         },
-        slideDown: {
-          '0%': { opacity: '0', transform: 'translateY(-30px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' }
-        },
-        slideLeft: {
-          '0%': { opacity: '0', transform: 'translateX(30px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' }
-        },
-        slideRight: {
-          '0%': { opacity: '0', transform: 'translateX(-30px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' }
-        },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' }
+          '50%': { transform: 'translateY(-16px)' }
         },
         glow: {
-          '0%': { boxShadow: '0 0 5px rgba(12, 147, 235, 0.3)' },
-          '100%': { boxShadow: '0 0 30px rgba(12, 147, 235, 0.8), 0 0 60px rgba(12, 147, 235, 0.4)' }
+          '0%': { boxShadow: '0 0 8px rgba(201,168,76,0.3)' },
+          '100%': { boxShadow: '0 0 32px rgba(201,168,76,0.7), 0 0 64px rgba(201,168,76,0.3)' }
         },
         shimmer: {
           '0%': { backgroundPosition: '-200% 0' },
           '100%': { backgroundPosition: '200% 0' }
         },
-        gradient: {
-          '0%, 100%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' }
-        },
         scaleIn: {
-          '0%': { opacity: '0', transform: 'scale(0.9)' },
+          '0%': { opacity: '0', transform: 'scale(0.92)' },
           '100%': { opacity: '1', transform: 'scale(1)' }
-        }
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' }
+        },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'gradient-shimmer': 'linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent)',
       },
       boxShadow: {
-        'glow-sm': '0 0 15px rgba(12, 147, 235, 0.3)',
-        'glow-md': '0 0 30px rgba(12, 147, 235, 0.4)',
-        'glow-lg': '0 0 45px rgba(12, 147, 235, 0.5)',
-        'inner-glow': 'inset 0 0 20px rgba(12, 147, 235, 0.2)',
+        'gold-sm': '0 2px 8px rgba(201,168,76,0.2)',
+        'gold-md': '0 4px 16px rgba(201,168,76,0.25)',
+        'gold-lg': '0 8px 32px rgba(201,168,76,0.3)',
+        'blue-sm': '0 2px 8px rgba(16,85,204,0.2)',
+        'blue-md': '0 4px 16px rgba(16,85,204,0.3)',
+        'blue-lg': '0 8px 32px rgba(16,85,204,0.4)',
+        'blue-xl': '0 16px 48px rgba(16,85,204,0.35)',
       },
-      backdropBlur: {
-        xs: '2px',
-      }
     },
   },
   plugins: [],

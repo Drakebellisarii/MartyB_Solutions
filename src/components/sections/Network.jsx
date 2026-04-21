@@ -1,161 +1,191 @@
-import React, { useState } from 'react';
-import useIntersectionObserver from '../../hooks/useIntersectionObserver';
-import { connections } from '../../data/connections';
-import { Network as NetworkIcon, Sparkles } from 'lucide-react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import ParticlesBg from '../ui/particles-bg';
 
-const Network = () => {
-  const isVisible = useIntersectionObserver();
-  const [activeConnection, setActiveConnection] = useState(null);
+const connections = [
+  {
+    id: 'fortune500',
+    title: 'Fortune 500',
+    desc: "C-suite executives and decision-makers across America's largest corporations",
+    size: 'featured',
+  },
+  {
+    id: 'entertainment',
+    title: 'Entertainment',
+    desc: 'A-list contacts in music, media, television, and the performing arts',
+    size: 'tall',
+  },
+  {
+    id: 'retail',
+    title: 'Retail Giants',
+    desc: 'Major buyers and merchandising partners in national and global retail chains',
+    size: 'standard',
+  },
+  {
+    id: 'startups',
+    title: 'Startups & Innovators',
+    desc: 'Growth-ready entrepreneurs seeking the introductions that change everything',
+    size: 'standard',
+  },
+  {
+    id: 'global',
+    title: 'Global Markets',
+    desc: 'International partners and cross-border opportunities on every continent',
+    size: 'standard',
+  },
+  {
+    id: 'nyctourism',
+    title: 'NYC Tourism & Hospitality',
+    desc: "The full ecosystem of New York's tourism, events, and hospitality industry",
+    size: 'wide',
+  },
+];
 
-  const gradients = [
-    { bg: 'from-primary-500 to-primary-600', card: 'from-primary-50 to-primary-100', hover: 'hover:border-primary-400' },
-    { bg: 'from-secondary-500 to-secondary-600', card: 'from-secondary-50 to-secondary-100', hover: 'hover:border-secondary-400' },
-    { bg: 'from-accent-500 to-accent-600', card: 'from-accent-50 to-accent-100', hover: 'hover:border-accent-400' },
-  ];
+const cardBase = {
+  backgroundColor: 'rgba(255,255,255,0.04)',
+  border: '1px solid rgba(255,255,255,0.07)',
+  backdropFilter: 'blur(8px)',
+};
 
-  return (
-    <section id="network" className="py-32 bg-gradient-to-br from-dark-900 via-primary-950 to-dark-900 relative overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-secondary-500/20 rounded-full blur-3xl animate-float-slow"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-[size:80px_80px]"></div>
+const Network = () => (
+  <section
+    id="network"
+    className="py-20 lg:py-28 relative overflow-hidden"
+    style={{ backgroundColor: '#0A1628' }}
+  >
+    <ParticlesBg />
+
+    <div className="max-w-7xl mx-auto px-8 md:px-16 relative z-10">
+
+      {/* Header */}
+      <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-14">
+        <div>
+          <span className="text-xs font-inter font-semibold tracking-widest uppercase block mb-3" style={{ color: '#C9A84C' }}>
+            The Network
+          </span>
+          <h2
+            className="font-playfair font-bold leading-none"
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', color: '#FFFFFF', letterSpacing: '-0.03em' }}
+          >
+            Decades of<br />relationships.
+          </h2>
+        </div>
+        <p className="hidden md:block font-inter text-sm max-w-xs text-right" style={{ color: 'rgba(255,255,255,0.35)' }}>
+          Across industries, continents, and Fortune 500 boardrooms — all accessible through one call.
+        </p>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 border border-primary-500/30 rounded-full text-primary-300 text-sm font-semibold mb-6 backdrop-blur-sm">
-            <NetworkIcon className="w-4 h-4" />
-            Global Connections
-          </span>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 font-playfair">
-            <span className="bg-gradient-to-r from-white via-primary-200 to-white bg-clip-text text-transparent">
-              My Network Spans
-            </span>
-          </h2>
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary-400"></div>
-            <Sparkles className="w-5 h-5 text-primary-400" />
-            <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary-400"></div>
+      {/* Bento grid */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-3 mb-10">
+
+        {/* Fortune 500 — featured large left */}
+        <div
+          className="md:col-span-7 p-8 md:p-10 rounded-sm group cursor-default transition-colors duration-300"
+          style={{ ...cardBase, minHeight: '220px' }}
+          onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(201,168,76,0.35)'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.07)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.04)'; }}
+        >
+          <div className="flex items-start justify-between mb-auto">
+            <span className="text-xs font-inter tracking-widest uppercase" style={{ color: 'rgba(255,255,255,0.25)' }}>01</span>
+            <span className="font-playfair italic text-white/20 text-5xl leading-none">F</span>
           </div>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Decades of connections across industries, continents, and Fortune 500 boardrooms
+          <div className="mt-8">
+            <h3 className="font-playfair font-bold text-3xl md:text-4xl text-white mb-3 group-hover:text-gold-400 transition-colors duration-200" style={{ letterSpacing: '-0.02em' }}>
+              Fortune 500
+            </h3>
+            <p className="font-inter text-sm" style={{ color: 'rgba(255,255,255,0.4)', maxWidth: '360px' }}>
+              C-suite executives and decision-makers across America's largest corporations — direct relationships built over three decades.
+            </p>
+          </div>
+        </div>
+
+        {/* Entertainment — tall right */}
+        <div
+          className="md:col-span-5 p-8 rounded-sm group cursor-default transition-colors duration-300"
+          style={{ ...cardBase }}
+          onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(201,168,76,0.35)'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.07)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.04)'; }}
+        >
+          <span className="text-xs font-inter tracking-widest uppercase" style={{ color: 'rgba(255,255,255,0.25)' }}>02</span>
+          <h3 className="font-playfair font-bold text-2xl text-white mt-8 mb-3 group-hover:text-gold-400 transition-colors duration-200">Entertainment</h3>
+          <p className="font-inter text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
+            A-list contacts in music, media, television, and the performing arts.
           </p>
         </div>
 
-        {/* Connection cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {connections.map((connection, index) => {
-            const theme = gradients[index % 3];
-            return (
-              <div
-                key={connection.id}
-                className={`group relative bg-white/5 backdrop-blur-md border border-white/10 ${theme.hover} p-8 rounded-3xl cursor-pointer transition-all duration-500 hover:scale-105 hover:bg-white/10 ${
-                  isVisible.network ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-                onMouseEnter={() => setActiveConnection(connection.id)}
-                onMouseLeave={() => setActiveConnection(null)}
-              >
-                {/* Hover gradient overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${theme.card} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}></div>
-
-                <div className="relative">
-                  {/* Icon */}
-                  <div
-                    className={`w-20 h-20 bg-gradient-to-br ${theme.bg} text-white flex items-center justify-center text-3xl mb-6 mx-auto rounded-2xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 ${
-                      activeConnection === connection.id ? 'animate-glow' : ''
-                    }`}
-                  >
-                    {connection.icon}
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-2xl font-bold text-white mb-4 text-center font-playfair group-hover:text-primary-300 transition-colors duration-300">
-                    {connection.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-gray-400 text-center leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
-                    {connection.description}
-                  </p>
-
-                  {/* Decorative corner */}
-                  <div className="absolute top-4 right-4 w-16 h-16 bg-gradient-to-br from-white/5 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Connecting lines visualization */}
-        <div className="relative py-16 mb-16">
-          <div className="absolute inset-0 flex items-center justify-center opacity-20">
-            <svg className="w-full h-64" viewBox="0 0 800 200">
-              <path
-                d="M 100 100 Q 200 50 300 100 T 500 100 T 700 100"
-                stroke="url(#gradient1)"
-                strokeWidth="2"
-                fill="none"
-                className="animate-pulse-slow"
-              />
-              <path
-                d="M 100 120 Q 200 70 300 120 T 500 120 T 700 120"
-                stroke="url(#gradient2)"
-                strokeWidth="2"
-                fill="none"
-                className="animate-pulse-slow"
-                style={{ animationDelay: '1s' }}
-              />
-              <defs>
-                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#0c93eb" stopOpacity="0.2" />
-                  <stop offset="50%" stopColor="#d946ef" stopOpacity="0.6" />
-                  <stop offset="100%" stopColor="#0c93eb" stopOpacity="0.2" />
-                </linearGradient>
-                <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#f97316" stopOpacity="0.2" />
-                  <stop offset="50%" stopColor="#0c93eb" stopOpacity="0.6" />
-                  <stop offset="100%" stopColor="#f97316" stopOpacity="0.2" />
-                </linearGradient>
-              </defs>
-            </svg>
+        {/* Three equal cards — second row */}
+        {connections.slice(2, 5).map((conn, i) => (
+          <div
+            key={conn.id}
+            className="md:col-span-4 p-7 rounded-sm group cursor-default transition-colors duration-300"
+            style={{ ...cardBase }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(201,168,76,0.35)'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.07)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.04)'; }}
+          >
+            <span className="text-xs font-inter tracking-widest uppercase" style={{ color: 'rgba(255,255,255,0.25)' }}>0{i + 3}</span>
+            <h3 className="font-playfair font-bold text-xl text-white mt-6 mb-2 group-hover:text-gold-400 transition-colors duration-200">{conn.title}</h3>
+            <p className="font-inter text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>{conn.desc}</p>
           </div>
+        ))}
 
-          <div className="relative text-center">
-            <div className="inline-flex items-center gap-6 bg-gradient-to-r from-primary-600/20 via-secondary-600/20 to-accent-600/20 backdrop-blur-md rounded-full px-10 py-6 border border-white/20">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary-300 mb-1">∞</div>
-                <div className="text-xs text-gray-400">Connections</div>
-              </div>
-              <div className="w-px h-12 bg-white/20"></div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-secondary-300 mb-1">24/7</div>
-                <div className="text-xs text-gray-400">Available</div>
-              </div>
-              <div className="w-px h-12 bg-white/20"></div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-accent-300 mb-1">100%</div>
-                <div className="text-xs text-gray-400">Trusted</div>
-              </div>
-            </div>
+        {/* NYC Tourism — full width bottom */}
+        <div
+          className="md:col-span-12 p-7 md:p-8 rounded-sm flex flex-col md:flex-row md:items-center md:justify-between gap-4 group cursor-default transition-colors duration-300"
+          style={{ ...cardBase }}
+          onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(201,168,76,0.35)'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.07)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.04)'; }}
+        >
+          <div className="flex items-center gap-6">
+            <span className="text-xs font-inter tracking-widest uppercase" style={{ color: 'rgba(255,255,255,0.25)' }}>06</span>
+            <h3 className="font-playfair font-bold text-xl text-white group-hover:text-gold-400 transition-colors duration-200">
+              NYC Tourism & Hospitality
+            </h3>
           </div>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="text-center">
-          <div className="inline-flex items-center gap-4 bg-gradient-to-r from-primary-600/10 to-secondary-600/10 backdrop-blur-md rounded-2xl px-8 py-6 border border-white/10">
-            <NetworkIcon className="w-8 h-8 text-primary-400" />
-            <div className="text-left">
-              <div className="text-white font-semibold text-lg">Ready to tap into this network?</div>
-              <div className="text-gray-400 text-sm">Let's connect and unlock new opportunities</div>
-            </div>
-          </div>
+          <p className="font-inter text-sm md:max-w-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
+            The full ecosystem of New York's tourism, events, and hospitality industry.
+          </p>
         </div>
       </div>
-    </section>
-  );
-};
+
+      {/* Stats strip */}
+      <div
+        className="grid grid-cols-3 rounded-sm overflow-hidden"
+        style={{ border: '1px solid rgba(255,255,255,0.07)' }}
+      >
+        {[
+          { value: '∞', label: 'Connections' },
+          { value: '24/7', label: 'Available' },
+          { value: '100%', label: 'Discretion' },
+        ].map((s, i) => (
+          <div
+            key={s.label}
+            className="py-6 text-center"
+            style={{
+              backgroundColor: 'rgba(17,35,71,0.8)',
+              borderRight: i < 2 ? '1px solid rgba(255,255,255,0.07)' : 'none',
+            }}
+          >
+            <div className="font-playfair font-bold text-3xl mb-1" style={{ color: '#C9A84C' }}>{s.value}</div>
+            <div className="font-inter text-xs tracking-widest uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>{s.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* CTA */}
+      <div className="text-center mt-12">
+        <Link
+          to="/contact"
+          className="inline-flex items-center gap-2 px-7 py-3.5 font-inter font-semibold text-sm transition-all duration-200 hover:scale-105"
+          style={{ backgroundColor: '#C9A84C', color: '#050D1A' }}
+        >
+          Tap Into This Network
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </Link>
+      </div>
+    </div>
+  </section>
+);
 
 export default Network;
