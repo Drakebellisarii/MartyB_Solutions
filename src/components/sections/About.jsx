@@ -8,7 +8,7 @@ const About = () => (
       {/* Photo — bleeds from top, no frame, no border-radius */}
       <div className="relative md:col-span-5 overflow-hidden" style={{ minHeight: '480px' }}>
         <img
-          src="/Marty.png"
+          src="/Mart-headshot.png"
           alt="Marty Singer"
           className="w-full h-full object-cover"
           style={{ objectPosition: 'top center' }}
