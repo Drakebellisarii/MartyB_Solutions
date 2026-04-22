@@ -144,6 +144,7 @@ const ScrollExpandMedia = ({
                   maxWidth: '95vw',
                   maxHeight: '85vh',
                   boxShadow: '0px 0px 80px rgba(0,0,0,0.5)',
+                  opacity: Math.min(scrollProgress * 8, 1),
                 }}
               >
                 {mediaType === 'video' ? (

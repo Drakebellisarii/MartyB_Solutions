@@ -33,12 +33,6 @@ const connections = [
     desc: 'International partners and cross-border opportunities on every continent',
     size: 'standard',
   },
-  {
-    id: 'nyctourism',
-    title: 'NYC Tourism & Hospitality',
-    desc: "The full ecosystem of New York's tourism, events, and hospitality industry",
-    size: 'wide',
-  },
 ];
 
 const cardBase = {
@@ -128,23 +122,6 @@ const Network = () => (
           </div>
         ))}
 
-        {/* NYC Tourism — full width bottom */}
-        <div
-          className="md:col-span-12 p-7 md:p-8 rounded-sm flex flex-col md:flex-row md:items-center md:justify-between gap-4 group cursor-default transition-colors duration-300"
-          style={{ ...cardBase }}
-          onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(201,168,76,0.35)'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.07)'; }}
-          onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.04)'; }}
-        >
-          <div className="flex items-center gap-6">
-            <span className="text-xs font-inter tracking-widest uppercase" style={{ color: 'rgba(255,255,255,0.25)' }}>06</span>
-            <h3 className="font-playfair font-bold text-xl text-white group-hover:text-gold-400 transition-colors duration-200">
-              NYC Tourism & Hospitality
-            </h3>
-          </div>
-          <p className="font-inter text-sm md:max-w-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
-            The full ecosystem of New York's tourism, events, and hospitality industry.
-          </p>
-        </div>
       </div>
 
       {/* Stats strip */}

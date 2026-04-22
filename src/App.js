@@ -8,7 +8,6 @@ import Network from './components/sections/Network';
 import Process from './components/sections/Process';
 import ClientShowcase from './components/sections/ClientShowcase';
 import Testimonials from './components/sections/Testimonials';
-import CTAStrip from './components/sections/CTAStrip';
 import ContactPage from './pages/ContactPage';
 
 function HomePage() {
@@ -21,7 +20,6 @@ function HomePage() {
       <Process />
       <ClientShowcase />
       <Testimonials />
-      <CTAStrip />
     </Layout>
   );
 }

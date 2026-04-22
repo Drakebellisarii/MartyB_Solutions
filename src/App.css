@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+/* Gold scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050D1A;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A84C;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4B96B;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #C9A84C #050D1A;
+}
+

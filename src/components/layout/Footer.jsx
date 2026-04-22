@@ -39,7 +39,7 @@ const Footer = () => {
       {/* Gold top accent */}
       <div className="h-px w-full bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-10">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-16 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 
           {/* Brand column */}
@@ -53,7 +53,7 @@ const Footer = () => {
                 <div className="text-gold-500 text-xs font-inter tracking-widest uppercase mt-0.5">New York City</div>
               </div>
             </div>
-            <p className="text-white/50 text-sm font-inter leading-relaxed mb-5">
+            <p className="text-white/80 text-sm font-inter leading-relaxed mb-5">
               Business Broker · Facilitator · Connector.<br />
               30+ years opening doors others can't find.
             </p>
@@ -69,7 +69,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.name}
-                  className="w-8 h-8 flex items-center justify-center text-white/40 hover:text-gold-400 transition-colors duration-200"
+                  className="w-8 h-8 flex items-center justify-center text-white/70 hover:text-gold-400 transition-colors duration-200"
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path d={s.path} />
@@ -81,7 +81,7 @@ const Footer = () => {
 
           {/* Services column */}
           <div>
-            <h4 className="text-white font-inter font-semibold text-sm uppercase tracking-widest mb-5" style={{ color: '#C9A84C' }}>
+            <h4 className="font-inter font-semibold text-sm uppercase tracking-widest mb-5" style={{ color: '#C9A84C' }}>
               Services
             </h4>
             <ul className="space-y-2.5">
@@ -89,7 +89,7 @@ const Footer = () => {
                 <li key={s}>
                   <button
                     onClick={() => scrollToSection('services')}
-                    className="text-white/50 hover:text-white text-sm font-inter transition-colors duration-200 text-left"
+                    className="text-white/80 hover:text-white text-sm font-inter transition-colors duration-200 text-left"
                   >
                     {s}
                   </button>
@@ -100,7 +100,7 @@ const Footer = () => {
 
           {/* Quick links column */}
           <div>
-            <h4 className="text-white font-inter font-semibold text-sm uppercase tracking-widest mb-5" style={{ color: '#C9A84C' }}>
+            <h4 className="font-inter font-semibold text-sm uppercase tracking-widest mb-5" style={{ color: '#C9A84C' }}>
               Quick Links
             </h4>
             <ul className="space-y-2.5">
@@ -108,7 +108,7 @@ const Footer = () => {
                 <li key={l.label}>
                   <button
                     onClick={() => scrollToSection(l.id)}
-                    className="text-white/50 hover:text-white text-sm font-inter transition-colors duration-200 text-left"
+                    className="text-white/80 hover:text-white text-sm font-inter transition-colors duration-200 text-left"
                   >
                     {l.label}
                   </button>
@@ -127,25 +127,25 @@ const Footer = () => {
 
           {/* Contact column */}
           <div>
-            <h4 className="text-white font-inter font-semibold text-sm uppercase tracking-widest mb-5" style={{ color: '#C9A84C' }}>
+            <h4 className="font-inter font-semibold text-sm uppercase tracking-widest mb-5" style={{ color: '#C9A84C' }}>
               Connect
             </h4>
             <ul className="space-y-4">
               <li>
-                <div className="text-white/40 text-xs font-inter uppercase tracking-wider mb-1">Phone</div>
-                <a href="tel:917-309-9905" className="text-white/80 hover:text-gold-400 text-sm font-inter transition-colors duration-200">
+                <div className="text-white/60 text-xs font-inter uppercase tracking-wider mb-1">Phone</div>
+                <a href="tel:917-309-9905" className="text-white/90 hover:text-gold-400 text-sm font-inter transition-colors duration-200">
                   917-309-9905
                 </a>
               </li>
               <li>
-                <div className="text-white/40 text-xs font-inter uppercase tracking-wider mb-1">Email</div>
-                <a href="mailto:marty@martybsolutions.com" className="text-white/80 hover:text-gold-400 text-sm font-inter transition-colors duration-200 break-all">
+                <div className="text-white/60 text-xs font-inter uppercase tracking-wider mb-1">Email</div>
+                <a href="mailto:marty@martybsolutions.com" className="text-white/90 hover:text-gold-400 text-sm font-inter transition-colors duration-200 break-all">
                   marty@martybsolutions.com
                 </a>
               </li>
               <li>
-                <div className="text-white/40 text-xs font-inter uppercase tracking-wider mb-1">Location</div>
-                <span className="text-white/80 text-sm font-inter">New York City, NY</span>
+                <div className="text-white/60 text-xs font-inter uppercase trider mb-1">Location</div>
+                <span className="text-white/90 text-sm font-inter">New York City, NY</span>
               </li>
               <li className="pt-2">
                 <Link
@@ -160,15 +160,16 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-white/8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/30 text-xs font-inter">
+        <div className="pt-8 border-t border-white/15 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-white/65 text-xs font-inter">
             © 2026 Marty B Solutions. All rights reserved. · New York City
           </p>
-          <p className="text-white/20 text-xs font-inter italic">
+          <p className="text-white/55 text-xs font-inter italic">
             "Your next big opportunity is in my network."
           </p>
         </div>
       </div>
+
     </footer>
   );
 };
